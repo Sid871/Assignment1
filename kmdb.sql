@@ -154,7 +154,7 @@ VALUES (NULL,1,"Christian Bale","Bruce Wayne"),
 .print "Movies"
 .print "======"
 .print ""
-SELECT title, year, mpaa_rating, studio FROM movies;
+SELECT movie_title, release_year, mpaa_rating, studio FROM movies;
 
 -- The SQL statement for the movies output
 -- TODO!
@@ -165,7 +165,7 @@ SELECT title, year, mpaa_rating, studio FROM movies;
 .print "Top Cast"
 .print "========"
 .print ""
-SELECT title, actors.name, actors.role FROM movies INNER JOIN actors ON movies.id= actors.movie_id;
+SELECT movie_title, actors.actor_name, actors.actor_role FROM movies INNER JOIN actors ON movies.movie_id= actors.movie_actor_id;
 
 -- The SQL statement for the cast output
 -- TODO!
