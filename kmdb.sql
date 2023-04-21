@@ -107,8 +107,6 @@
 -- TODO!
 DROP TABLE IF EXISTS movies;
 DROP TABLE IF EXISTS actors;
-DROP TABLE IF EXISTS castroll;
-DROP TABLE IF EXISTS studios;
 
 -- Create new tables, according to your domain model
 -- TODO!
@@ -132,23 +130,37 @@ CREATE TABLE actors (
 -- TODO!
 
 INSERT INTO movies (movie_id, movie_title, release_year, mpaa_rating, studio) 
-VALUES (1, "Batman Begins", 2005, "PG-13", "Warner Bros."),
- (2, "The Dark Knight", 2008, "PG-13", "Warner Bros."), 
- (3, "The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+VALUES (NULL, "Batman Begins", 2005, "PG-13", "Warner Bros."),
+ (NULL, "The Dark Knight", 2008, "PG-13", "Warner Bros."), 
+ (NULL, "The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
 
--- WIP: Add all values here 
+
 INSERT INTO actors (actor_id, actor_name, movie_actor_id, actor_role)
-VALUES (NULL,1,"Christian Bale","Bruce Wayne"),
-(NULL,2,"Michael Caine"),
-(NULL, 3,"Liam Neeson"),
-(4,"Katie Holmes"),
-(5,"Gary Oldman"),
-(6,"Heath Ledger"),
-(7,"Aaron Eckhart"),
-(8,"Maggie Gyllenhaal"),
-(9,"Tom Hardy"),
-(10,"Joseph Gordon-Levitt"),
-(11,"Anne Hathaway");
+VALUES (NULL, 1, 'Christian Bale', 'Bruce Wayne');
+VALUES (NULL, 1, 'Michael Caine', 'Alfred');
+VALUES (NULL, 1, 'Liam Neeson', 'Ra''s Al Ghul');
+VALUES (NULL, 1, 'Katie Holmes', 'Rachel Dawes');
+VALUES (NULL, 1, 'Gary Oldman', 'Commissioner Gordon');
+VALUES (NULL, 1, 'Cillian Murphy', 'Dr.Crane/Scarecrow');
+VALUES (NULL, 1, 'Morgan Freeman', 'Lucius Fox');
+
+VALUES (NULL, 2, 'Christian Bale', 'Bruce Wayne');
+VALUES (NULL, 2, 'Heath Ledger', 'Joker');
+VALUES (NULL, 2, 'Aaron Eckhart', 'Harvey Dent');
+VALUES (NULL, 2, 'Michael Caine', 'Alfred');
+VALUES (NULL, 2, 'Maggie Gyllenhaal', 'Rachel Dawes');
+VALUES (NULL, 2, 'Gary Oldman', 'Commissioner Gordon');
+VALUES (NULL, 2, 'Morgan Freeman', 'Lucius Fox');
+
+VALUES (NULL, 3, 'Christian Bale', 'Bruce Wayne');
+VALUES (NULL, 3, 'Gary Oldman', 'Commissioner Gordon');
+VALUES (NULL, 3, 'Tom Hardy', 'Bane');
+VALUES (NULL, 3, 'Joseph Gordon-Levitt', 'John Blake');
+VALUES (NULL, 3, 'Anne Hathaway', 'Selina Kyle');
+VALUES (NULL, 3, 'Marion Cotillard', 'Miranda Tate');
+VALUES (NULL, 3, 'Morgan Freeman', 'Lucius Fox');
+VALUES (NULL, 3, 'Michael Caine', 'Alfred');
+
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -158,7 +170,6 @@ SELECT movie_title, release_year, mpaa_rating, studio FROM movies;
 
 -- The SQL statement for the movies output
 -- TODO!
-
 
 -- Prints a header for the cast output
 .print ""
@@ -170,3 +181,4 @@ SELECT movie_title, actors.actor_name, actors.actor_role FROM movies INNER JOIN 
 -- The SQL statement for the cast output
 -- TODO!
 -- TODO takes me back to my Java days :D - Feels like home <3 haha
+-- My only wish - Wish I could have Hans Zimmer's Dark Knight Rises end credits theme play as the list gets printed <3
