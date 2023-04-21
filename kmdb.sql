@@ -105,9 +105,17 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
+DROP TABLE IF EXISTS studios;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS castroll;
+DROP TABLE IF EXISTS actors;
+
 
 -- Create new tables, according to your domain model
 -- TODO!
+
+
+
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
@@ -130,3 +138,4 @@
 
 -- The SQL statement for the cast output
 -- TODO!
+-- TODO takes me back to my Java days :D - Feels like home <3 haha
