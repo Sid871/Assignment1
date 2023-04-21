@@ -135,7 +135,7 @@ VALUES (NULL, "Batman Begins", 2005, "PG-13", "Warner Bros."),
  (NULL, "The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
 
 
-INSERT INTO actors (actor_id, actor_name, movie_actor_id, actor_role)
+INSERT INTO actors (actor_id, movie_actor_id, actor_name, actor_role)
 VALUES (NULL, 1, 'Christian Bale', 'Bruce Wayne');
 VALUES (NULL, 1, 'Michael Caine', 'Alfred');
 VALUES (NULL, 1, 'Liam Neeson', 'Ra''s Al Ghul');
