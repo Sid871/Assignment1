@@ -105,36 +105,67 @@
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
-DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS movies;
-DROP TABLE IF EXISTS castroll;
 DROP TABLE IF EXISTS actors;
-
+DROP TABLE IF EXISTS castroll;
+DROP TABLE IF EXISTS studios;
 
 -- Create new tables, according to your domain model
 -- TODO!
+CREATE TABLE movies (
+    movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_title TEXT,
+    release_year INTEGER,
+    mpaa_rating TEXT,
+    studio TEXT
+);
 
-
-
+CREATE TABLE actors (
+    actor_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_actor_id INTEGER
+    actor_name TEXT
+    actor_role TEXT
+);
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
+INSERT INTO movies (movie_id, movie_title, release_year, mpaa_rating, studio) 
+VALUES (1, "Batman Begins", 2005, "PG-13", "Warner Bros."),
+ (2, "The Dark Knight", 2008, "PG-13", "Warner Bros."), 
+ (3, "The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+
+-- WIP: Add all values here 
+INSERT INTO actors (actor_id, actor_name, movie_actor_id, actor_role)
+VALUES (NULL,1,"Christian Bale","Bruce Wayne"),
+(NULL,2,"Michael Caine"),
+(NULL, 3,"Liam Neeson"),
+(4,"Katie Holmes"),
+(5,"Gary Oldman"),
+(6,"Heath Ledger"),
+(7,"Aaron Eckhart"),
+(8,"Maggie Gyllenhaal"),
+(9,"Tom Hardy"),
+(10,"Joseph Gordon-Levitt"),
+(11,"Anne Hathaway");
+
 -- Prints a header for the movies output
 .print "Movies"
 .print "======"
 .print ""
+SELECT title, year, mpaa_rating, studio FROM movies;
 
 -- The SQL statement for the movies output
 -- TODO!
+
 
 -- Prints a header for the cast output
 .print ""
 .print "Top Cast"
 .print "========"
 .print ""
-
+SELECT title, actors.name, actors.role FROM movies INNER JOIN actors ON movies.id= actors.movie_id;
 
 -- The SQL statement for the cast output
 -- TODO!
