@@ -111,7 +111,7 @@ DROP TABLE IF EXISTS actors;
 -- Create new tables, according to your domain model
 -- TODO!
 CREATE TABLE movies (
-    movie_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     movie_title TEXT,
     release_year INTEGER,
     mpaa_rating TEXT,
@@ -119,47 +119,47 @@ CREATE TABLE movies (
 );
 
 CREATE TABLE actors (
-    actor_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    movie_actor_id INTEGER
-    actor_name TEXT
-    actor_role TEXT
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    movie_id INTEGER
+    name TEXT
+    role TEXT
 );
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
 
-INSERT INTO movies (movie_id, movie_title, release_year, mpaa_rating, studio) 
-VALUES (NULL, "Batman Begins", 2005, "PG-13", "Warner Bros."),
- (NULL, "The Dark Knight", 2008, "PG-13", "Warner Bros."), 
- (NULL, "The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+INSERT INTO movies (id, movie_title, release_year, mpaa_rating, studio) 
+VALUES (1, "Batman Begins", 2005, "PG-13", "Warner Bros."),
+ (2, "The Dark Knight", 2008, "PG-13", "Warner Bros."), 
+ (3, "The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
 
 
-INSERT INTO actors (actor_id, movie_actor_id, actor_name, actor_role)
-VALUES (NULL, 1, 'Christian Bale', 'Bruce Wayne');
-VALUES (NULL, 1, 'Michael Caine', 'Alfred');
-VALUES (NULL, 1, 'Liam Neeson', 'Ra''s Al Ghul');
-VALUES (NULL, 1, 'Katie Holmes', 'Rachel Dawes');
-VALUES (NULL, 1, 'Gary Oldman', 'Commissioner Gordon');
-VALUES (NULL, 1, 'Cillian Murphy', 'Dr.Crane/Scarecrow');
-VALUES (NULL, 1, 'Morgan Freeman', 'Lucius Fox');
+INSERT INTO actors (id, movie_id, name, role)
+VALUES (1, 1, 'Christian Bale', 'Bruce Wayne');
+VALUES (1, 1, 'Michael Caine', 'Alfred');
+VALUES (1, 1, 'Liam Neeson', 'Ra''s Al Ghul');
+VALUES (1, 1, 'Katie Holmes', 'Rachel Dawes');
+VALUES (1, 1, 'Gary Oldman', 'Commissioner Gordon');
+VALUES (1, 1, 'Cillian Murphy', 'Dr.Crane/Scarecrow');
+VALUES (1, 1, 'Morgan Freeman', 'Lucius Fox');
 
-VALUES (NULL, 2, 'Christian Bale', 'Bruce Wayne');
-VALUES (NULL, 2, 'Heath Ledger', 'Joker');
-VALUES (NULL, 2, 'Aaron Eckhart', 'Harvey Dent');
-VALUES (NULL, 2, 'Michael Caine', 'Alfred');
-VALUES (NULL, 2, 'Maggie Gyllenhaal', 'Rachel Dawes');
-VALUES (NULL, 2, 'Gary Oldman', 'Commissioner Gordon');
-VALUES (NULL, 2, 'Morgan Freeman', 'Lucius Fox');
+VALUES (2, 2, 'Christian Bale', 'Bruce Wayne');
+VALUES (2, 2, 'Heath Ledger', 'Joker');
+VALUES (2, 2, 'Aaron Eckhart', 'Harvey Dent');
+VALUES (2, 2, 'Michael Caine', 'Alfred');
+VALUES (2, 2, 'Maggie Gyllenhaal', 'Rachel Dawes');
+VALUES (2, 2, 'Gary Oldman', 'Commissioner Gordon');
+VALUES (2, 2, 'Morgan Freeman', 'Lucius Fox');
 
-VALUES (NULL, 3, 'Christian Bale', 'Bruce Wayne');
-VALUES (NULL, 3, 'Gary Oldman', 'Commissioner Gordon');
-VALUES (NULL, 3, 'Tom Hardy', 'Bane');
-VALUES (NULL, 3, 'Joseph Gordon-Levitt', 'John Blake');
-VALUES (NULL, 3, 'Anne Hathaway', 'Selina Kyle');
-VALUES (NULL, 3, 'Marion Cotillard', 'Miranda Tate');
-VALUES (NULL, 3, 'Morgan Freeman', 'Lucius Fox');
-VALUES (NULL, 3, 'Michael Caine', 'Alfred');
+VALUES (3, 3, 'Christian Bale', 'Bruce Wayne');
+VALUES (3, 3, 'Gary Oldman', 'Commissioner Gordon');
+VALUES (3, 3, 'Tom Hardy', 'Bane');
+VALUES (3, 3, 'Joseph Gordon-Levitt', 'John Blake');
+VALUES (3, 3, 'Anne Hathaway', 'Selina Kyle');
+VALUES (3, 3, 'Marion Cotillard', 'Miranda Tate');
+VALUES (3, 3, 'Morgan Freeman', 'Lucius Fox');
+VALUES (3, 3, 'Michael Caine', 'Alfred');
 
 
 -- Prints a header for the movies output
@@ -176,7 +176,7 @@ SELECT movie_title, release_year, mpaa_rating, studio FROM movies;
 .print "Top Cast"
 .print "========"
 .print ""
-SELECT movie_title, actors.actor_name, actors.actor_role FROM movies INNER JOIN actors ON movies.movie_id= actors.movie_actor_id;
+SELECT movie_title, actors.name, actors.role FROM movies INNER JOIN actors ON movies.id= actors.movie_id;
 
 -- The SQL statement for the cast output
 -- TODO!
